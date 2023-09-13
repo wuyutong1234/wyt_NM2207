@@ -1,0 +1,20 @@
+---
+title: "Challenge 1"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Yutong&Cats
+
+I love cats!
+
+```{r, out.height= "150px",out.width= "100px",echo=FALSE,eval=TRUE,fig.cap="A cute cat"}
+knitr::include_graphics("cat.jpeg") 
+```
+
+

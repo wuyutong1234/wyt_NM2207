@@ -1,0 +1,4 @@
+"0","# Enter code here"
+"0","comm_data %>%"
+"0","  mutate(product = sentiment * nchar(message)) %>%"
+"0","  arrange(desc(product))"

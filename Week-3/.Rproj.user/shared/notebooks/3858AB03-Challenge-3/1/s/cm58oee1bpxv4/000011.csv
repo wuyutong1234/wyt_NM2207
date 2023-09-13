@@ -1,0 +1,7 @@
+"0","# Enter code here"
+"0","fruits <- c(""apple"", ""banana"", ""cherry"", ""strawberry"", ""kiwi"", ""orange"", ""grape"")"
+"0","long_names <- nchar(fruits) > 6"
+"0","cat(""Long fruit names:"", fruits[long_names])"
+"1","Long fruit names:"
+"1"," "
+"1","strawberry"

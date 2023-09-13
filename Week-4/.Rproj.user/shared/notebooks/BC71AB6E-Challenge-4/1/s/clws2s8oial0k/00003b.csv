@@ -1,0 +1,2 @@
+"0","  #select(sender, sentiment, average_positive_sentiment_scores) %>%"
+"0","  #arrange(desc(average_positive_sentiment_scores)) "

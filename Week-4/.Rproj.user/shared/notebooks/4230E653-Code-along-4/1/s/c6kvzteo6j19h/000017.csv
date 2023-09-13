@@ -1,0 +1,6 @@
+"0","# Enter code here"
+"0","hotels %>%"
+"0","  mutate(little_ones = children + babies) %>%"
+"0","  select(little_ones, children, babies) %>%"
+"0","  arrange(desc(little_ones))%>%"
+"0","        slice(1:10)"

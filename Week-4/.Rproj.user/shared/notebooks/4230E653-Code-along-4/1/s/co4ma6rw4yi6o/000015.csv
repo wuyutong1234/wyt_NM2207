@@ -1,0 +1,4 @@
+"0","# Enter code here"
+"0","hotels %>%"
+"0","  filter(hotel == ""City Hotel"")%>%"
+"0","        slice(1:10)"

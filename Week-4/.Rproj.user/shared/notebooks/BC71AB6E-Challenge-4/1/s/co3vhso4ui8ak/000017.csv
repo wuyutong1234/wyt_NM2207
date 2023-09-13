@@ -1,0 +1,5 @@
+"0","# Enter code here"
+"0","comm_data %>%"
+"0","  select(message, sentiment) %>%"
+"0","  filter(sentiment < 0) %>%"
+"0","  slice(1:10)"

@@ -1,0 +1,11 @@
+"0","# Enter code here"
+"0","library(magick)"
+"0",""
+"0","create_meme <- function(text, image_path, output_path) {"
+"0","  meme <- image_read(image_path) "
+"0","  meme <- image_annotate(meme, text, gravity = ""center"", size = 50, color = ""black"")"
+"0","  image_write(meme, path = output_path)"
+"0","}"
+"0","create_meme(""when"", ""meme.jpg"", ""output_meme.jpg"")"
+"2","Error: rsession-arm64: NonconformingDrawingPrimitiveDefinition `text' @ error/draw.c/RenderMVGContent/4456
+"

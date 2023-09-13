@@ -1,0 +1,5 @@
+"0","# Enter code here"
+"0","hotels %>%"
+"0","  select(lead_time) %>%"
+"0","  arrange(desc(lead_time)) %>%"
+"0","   slice(1:10) "

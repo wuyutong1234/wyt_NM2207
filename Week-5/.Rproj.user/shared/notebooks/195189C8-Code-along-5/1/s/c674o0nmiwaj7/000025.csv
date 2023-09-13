@@ -1,0 +1,8 @@
+"0","add_numbers <-function(x,y) {"
+"0","  z = 20"
+"0","  x+y"
+"0","  return(x+y, z)"
+"0","}"
+"0","add_numbers(1,2)"
+"2","Error in return(x + y, z) : multi-argument returns are not permitted
+"
