@@ -1,0 +1,42 @@
+"0","gapminder <- read_csv(""gapminder.csv"")"
+"2","[1mRows: [22m[34m1704[39m [1mColumns: [22m[34m6[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (2): country, continent
+[32mdbl[39m (4): year, lifeExp, pop, gdpPercap"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","glimpse(gapminder)"
+"1","Rows: 1,704"
+"1",""
+"1","
+"
+"1","Columns: 6"
+"1",""
+"1","
+"
+"1","$ country   [3m[38;5;246m<chr>[39m[23m ""Afghanistan"", ""Afghanistan"", ""Afghanistan"", ""Afghanistan"", ""Afghani…
+$ continent [3m[38;5;246m<chr>[39m[23m ""Asia"", ""Asia"", ""Asia"", ""Asia"", ""Asia"", ""Asia"", ""Asia"", ""Asia"", ""Asi…
+$ year      [3m[38;5;246m<dbl>[39m[23m 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, 2002, 20…
+$ lifeExp   [3m[38;5;246m<dbl>[39m[23m 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.822, 41.6…
+$ pop       [3m[38;5;246m<dbl>[39m[23m 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12881816, …
+$ gdpPercap [3m[38;5;246m<dbl>[39m[23m 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, 978.0114…"
+"1",""
+"1","
+"
+"0","country_names <- c(""Canada"", ""China"", ""US"", ""Netherlands"", ""Singapore"")"
+"0",""
+"0",""
+"0","country_name_length <- function (country_names) {"
+"0",""
+"0","country_name_length <- nchar(country_names)"
+"0",""
+"0","long_names <- nchar(country_names) > 8"
+"0",""
+"0","return(long_names)"
+"0",""
+"0","}"
+"0",""
+"0",""
+"0",""

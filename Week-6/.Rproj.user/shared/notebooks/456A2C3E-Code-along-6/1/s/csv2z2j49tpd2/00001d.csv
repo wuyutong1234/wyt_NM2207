@@ -1,0 +1,5 @@
+"0","# Slide 24"
+"0","#Compute mean"
+"0","sample_summary(sample_sizes,mean)"
+"2","Error in fun(rnorm(sample_sizes[[i]])) : could not find function ""fun""
+"
