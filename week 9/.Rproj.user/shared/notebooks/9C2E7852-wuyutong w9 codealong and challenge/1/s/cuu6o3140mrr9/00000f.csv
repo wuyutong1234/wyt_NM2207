@@ -1,0 +1,4 @@
+"0","tidieddata <- nontidydata %>%"
+"0","  separate(rate, into = c(""cases"", ""population""),"
+"0","           sep = ""/"")"
+"0","tidieddata"

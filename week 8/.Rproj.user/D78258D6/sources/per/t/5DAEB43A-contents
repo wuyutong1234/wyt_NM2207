@@ -1,0 +1,29 @@
+---
+title: "code-along and challenge 8"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# code-along
+```{r, out.height= "500px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="codealong"}
+knitr::include_graphics("codealong8.png") 
+```
+```{r, out.height= "500px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="codealong"}
+knitr::include_graphics("codealong8.1.png") 
+```
+```{r, out.height= "500px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="codealong"}
+knitr::include_graphics("codealong8.2.png") 
+```
+# challenge
+addition of a dataset to download and addition of a instruction
+```{r, out.height= "500px",out.width= "1000px",echo=FALSE,eval=TRUE,fig.cap="codealong"}
+knitr::include_graphics("challenge8.png") 
+```
+
+
+

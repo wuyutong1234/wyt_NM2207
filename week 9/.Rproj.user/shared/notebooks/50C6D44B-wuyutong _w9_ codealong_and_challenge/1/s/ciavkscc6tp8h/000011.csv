@@ -1,0 +1,8 @@
+"0","df %>%"
+"0","pivot_wider("
+"0","  names_from = measurement,"
+"0","  values_from = value"
+"0",")"
+"2","Error in df %>% pivot_wider(names_from = measurement, values_from = value) : 
+  could not find function ""%>%""
+"

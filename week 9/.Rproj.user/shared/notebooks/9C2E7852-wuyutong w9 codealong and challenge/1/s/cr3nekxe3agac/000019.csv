@@ -1,0 +1,4 @@
+"0","ggplot(week) +"
+"0","  aes(x=wk,y=value) +"
+"0","  geom_line() +"
+"0","  theme_minimal()"

@@ -1,0 +1,207 @@
+---
+title: "week 9 code along and challenge"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. tidy the data
+2. any grouping/new columns, separate [new: reshaping and reverse]
+3. summary statistics, frequency etc. 
+4. plotting graph from reshaped data
+5. scraping data from website’s  (?)
+6. API: Application Program Interface (?)
+
+#1. tidy the data [slide 8]
+```{r, echo=TRUE, eval=TRUE}
+library(tidyverse)
+tidydata <- tribble(
+  ~country,      ~year,  ~cases, ~population,
+"Afghanistan",  1999,    745,   19987071,
+"Afghanistan",  2000,   2666,   20595360,
+"Brazil",       1999,  37737,  172006362,
+"Brazil",       2000,  80488,  174504898,
+"China",        1999, 212258, 1272915272,
+"China",        2000, 213766, 1280428583)
+tidydata
+```
+
+```{r, echo=TRUE, eval=TRUE}
+nontidydata <- tribble(
+  ~country, ~year, ~rate,
+  "Afghanistan", 1999, "745/19987071",
+  "Afghanistan", 2000, "2666/20595360",
+  "Brazil", 1999, "37737/172006362",
+  "Brazil", 2000, "80488/174504898",
+  "China", 1999, "212258/1272915272",
+  "China", 2000, "213766/1280428583"
+)
+
+nontidydata
+```
+
+```{r, echo=TRUE, eval=TRUE}
+tidydata %>%
+  group_by(year) %>%
+  summarize(total_cases = sum(cases))
+```
+
+#separate the data into different columns [slide 11]
+```{r, echo=TRUE, eval=TRUE}
+tidieddata <- nontidydata %>%
+  separate(rate, into = c("cases", "population"),
+           sep = "/")
+tidieddata
+```
+#reorganizing the variable [slide 12]
+```{r, echo=TRUE, eval=TRUE}
+newtidieddata <- tidieddata %>%
+  pivot_longer(
+    cols = cases:population,
+    names_to = "measurement",
+    values_to = "value"
+)
+newtidieddata
+```
+#ploting graphs from data
+facet_wrap: 1 dimensional grid
+regrouping data can help to plot specific graphs 
+```{r, echo=TRUE, eval=TRUE}
+ggplot(newtidieddata) +
+  aes(x=year,y=value, colour=country) +
+  geom_point() +
+  geom_line(aes(group = country))+
+  facet_wrap(~measurement) +
+  theme_bw()
+```
+#tribble vs. tibble [slide 14]
+tribble: feed data row wise
+```{r, echo=TRUE, eval=TRUE}
+df <- tribble(
+~id, ~bp1, ~bp2,
+"A", 100, 120,
+"B", 140, 115,
+"C", 120, 125
+)
+df
+```
+#[slide 18]
+```{r, echo=TRUE, eval=TRUE}
+newtidieddata
+
+newtidieddata %>%
+pivot_wider(names_from = "measurement",
+              values_from ="value")
+```
+
+# another example of reshaping data
+```{r, echo=TRUE, eval=TRUE}
+df %>%
+pivot_longer(
+  cols = bp1:bp2,
+  names_to = "measurement",
+  values_to = "value"
+)
+```
+#reverse the reshaping [slide 19]
+```{r, echo=TRUE, eval=TRUE}
+df <- tribble(
+~id, ~measurement, ~value,
+"A", "bp1", 100,
+"B", "bp1", 140,
+"B", "bp2", 115,
+"A", "bp2", 120,
+"A", "bp3", 105
+)
+df
+```
+
+```{r, echo=TRUE, eval=TRUE}
+df %>%
+pivot_wider(
+  names_from = measurement,
+  values_from = value
+)
+```
+
+
+#scraping data from website
+```{r, echo=TRUE, eval=TRUE}
+library(rvest)
+webpage <- read_html("https://books.toscrape.com/")
+table <-html_elements(webpage,"body")
+```
+
+#API: Application Program Interface
+```{r, echo=TRUE, eval=TRUE}
+library(httr)
+library(jsonlite)
+
+# current data
+current_county_data_url <- "https://api.covidactnow.org/v2/counties.csv?apiKey=33382de96fd8441fb6c1eca82b3bd4ec"
+# historic data
+historic_county_data_url <-
+"https://api.covidactnow.org/v2/counties.timeseries.csv?apiKey=33382de96fd8441fb6c1eca82b3bd4ec"
+# individual location data
+individual_loc_data_url <-
+"https://api.covidactnow.org/v2/county/{state}.csv?apiKey=33382de96fd8441fb6c1eca82b3bd4ec"
+```
+
+#calling an API
+```{r, echo=TRUE, eval=TRUE}
+# historic data
+historic_county_data_url <-
+"https://api.covidactnow.org/v2/counties.timeseries.csv?apiKey=33382de96fd8441fb6c1eca82b3bd4ec"
+raw_data <- GET(historic_county_data_url)
+raw_data$status
+raw_data$content
+```
+
+```{r, echo=TRUE, eval=TRUE}
+# individual location data
+individual_loc_data_url <-
+"https://api.covidactnow.org/v2/county/{49}.csv?apiKey=33382de96fd8441fb6c1eca82b3bd4ec"
+raw_data <- GET(individual_loc_data_url)
+raw_data$status
+raw_data$content
+```
+
+#challenge
+```{r, echo=TRUE, eval=TRUE}
+week <- billboard %>%
+  pivot_longer(
+    cols = starts_with("wk"),
+    names_to = "wk",
+    values_to = "value",
+    values_drop_na = TRUE) %>%
+    mutate(wk = parse_number(wk))
+
+week
+```
+
+```{r, echo=TRUE, eval=TRUE}
+ggplot(week) +
+  aes(x=wk,y=value) +
+  geom_line() +
+  theme_minimal()
+```
+
+```{r, echo=TRUE, eval=TRUE}
+cms_patient_experience
+
+cms_patient_experience %>%
+pivot_wider(names_from = "measure_cd",
+              values_from ="prf_rate",
+            id_cols = starts_with("org"))
+```
+
+```{r, echo=TRUE, eval=TRUE}
+```
+
+```{r, echo=TRUE, eval=TRUE}
+```
+
