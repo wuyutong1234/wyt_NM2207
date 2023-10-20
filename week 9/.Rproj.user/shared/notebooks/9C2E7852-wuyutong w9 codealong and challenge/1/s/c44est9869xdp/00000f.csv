@@ -1,3 +1,0 @@
-"0","library(rvest)"
-"0","webpage <- read_html(""https://books.toscrape.com/"")"
-"0","table <-html_elements(webpage,""body"")"

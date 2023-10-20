@@ -1,0 +1,17 @@
+---
+title: "NM2207 project diary entry"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Topic
+I will be conducting an analysis of insomnia data with the aim of offering a succinct overview on sleep difficulties. The goal is to provide users and viewers of the interactive data with a sense of connection at the demographic level and to inspire them with a range of coping techniques.
+
+
+# Data source
+I will be examining the primary factors that lead to insomnia, exploring its effects on health, and evaluating the effectiveness of coping strategies, all while considering variations across different age groups and genders.

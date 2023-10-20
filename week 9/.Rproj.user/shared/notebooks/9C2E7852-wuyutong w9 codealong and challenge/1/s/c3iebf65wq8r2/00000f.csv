@@ -1,6 +1,0 @@
-"0","ggplot(newtidieddata) +"
-"0","  aes(x=year,y=value, colour=country) +"
-"0","  geom_point() +"
-"0","  geom_line(aes(group = country))+"
-"0","  facet_wrap(~measurement) +"
-"0","  theme_bw()"
