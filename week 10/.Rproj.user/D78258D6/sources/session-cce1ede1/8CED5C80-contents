@@ -1,0 +1,43 @@
+---
+title: "NM2207 project diary entry"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# week 9
+### Topic
+*I will be conducting an analysis of insomnia data with the aim of offering a succinct overview on sleep difficulties. The goal is to provide users and viewers of the interactive data with a sense of connection at the demographic level and to inspire them with a range of coping techniques.*
+
+
+### Data source
+*I will be examining the primary factors that lead to insomnia, exploring its effects on health, and evaluating the effectiveness of coping strategies, all while considering variations across different age groups and genders.*
+
+# week 10
+### (1) What is the question that you are going to answer?
+
+*What is the gender and age disparity in insomnia (severity, causes and coping skills) in young adults?*
+
+### (2) Why is this an important question? 
+
+*Sleep is a fundamental component of our lives, intricately linked to our mental well-being and daily functioning (NIH, 2022). Nevertheless, the issue of insomnia has risen to concerning levels, with a significant increase in sleep-related problems observed in young adults, going from 22.6% in 2010 to 30.5% in 2018 (Sivertsen, B. et al, 2019). In contrast to the commonly held belief that older adults experience more sleep difficulties than their younger counterparts, research indicates that insomnia affects over 1 in 4 individuals aged 18 to 24, with 29% experiencing it every night, making this age group the most vulnerable in the United States (Helsestart, 2022). Through an examination of the underlying causes of insomnia across different age groups and genders, we can unveil the distinctive challenges that this population faces today and explore effective approaches to address these concerns.*
+
+### (3) Which rows and columns of the dataset will be used to answer this question? 
+
+*All rows with valid data entry are used (86 rows after data cleaning).The columns used are categorised into 4 main groups: participants info, severity of insomnia, causes of insomnia and coping skills.*
+
+**participants info**: Group, SubGroup, Sex, Age
+
+**severity of insomnia**: ISI_total
+
+**causes of insomnia**:BDI_total, ASHS_total, ASHS_physiological, ASHS_cognitive,ASHS_emotional, ASHS_SleepEnvirnmont, ASHS_DaytimeSleep, ASHS_substances, ASHS_bedtimeRoutine, ASHS_sleepStability, ASHS_BedroomSharing, DBAS_total, FIRST_total, GCTI_total, NEO_neuroticism, NEO_extraversion, NEO_openness, NEO_agreeableness, NEO_Conscientiousness, ACE_tot, asq_home, asq_school, asq_attendance, asq_romantic, asq_peer, asq_teacher, asq_future, asq_leisure, asq_finance, asq_responsibility
+
+**coping skills**: cope_disengage_su, cope_growth, cope_disengage_mental, cope_emotions, cope_socialsupp_instr, cope_active, cope_denial, cope_religion, cope_humor, cope_disengage_emo, cope_restraint, cope_socialsupp_emo, cope_acccept, cope_suppression, cope_planning
+
+### the challenges and errors that you faced and how you overcame them.
+**challenge 1**: difficulty with publicizing the app (when data cleaning and graph plotting was done in a R markdown file, the info is stored in the workspace. So, when I only transfer the codes for graph plotting into the app.R file, it can show me the app when I run it but it failed to be publicised.)
+**solution**: Transfer all necessary codes, including library(tidyverse), read_csv(), and data cleaning functions to the app.R file so that when running the app, the data files can

@@ -1,0 +1,18 @@
+"0","shinyServer(function(input, output) {"
+"0",""
+"0","  # Rest of your server logic"
+"0","  output$insomnia_plot <- renderPlot({"
+"0","    ggplot(data, aes(x = Age, y = ISI_total)) +"
+"0","      geom_point() +"
+"0","      labs(x = ""Age"", y = ""Insomnia Severity"") +"
+"0","      ggtitle(""Insomnia Severity by Age"")"
+"0","  })"
+"0","})"
+"0","runApp()"
+"1","[1m[33mError[39m in `shinyAppDir()`:[22m
+[33m![39m App dir must contain either app.R or server.R.
+Backtrace:
+[90m 1. [39m[1mshiny[22m::runApp()
+[90m 3. [39mshiny:::as.shiny.appobj.character(appDir)
+[90m 4. [39m[1m[94mshiny::shinyAppDir([39m[22mx[1m[94m)[39m[22m
+"
