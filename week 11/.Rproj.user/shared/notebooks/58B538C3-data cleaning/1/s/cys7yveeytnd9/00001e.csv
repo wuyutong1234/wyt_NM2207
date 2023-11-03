@@ -1,0 +1,5 @@
+"0","ggplot(cleaned_insomnia, aes(x = BDI_total, y = ISI_total)) +"
+"0","  geom_point(aes(color = ISI_total), size = 1) +  # Customize point appearance"
+"0","  labs(x = ""depression"", y = ""Insomnia Severity"") +"
+"0","  ggtitle(""Insomnia Severity by depression"") +"
+"0","  theme_minimal()"

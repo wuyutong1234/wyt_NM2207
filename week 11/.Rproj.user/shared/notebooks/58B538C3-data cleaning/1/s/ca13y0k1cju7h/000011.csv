@@ -1,0 +1,6 @@
+"0","#ggplot(cleaned_insomnia, aes(x = ISI_total, y = Sex, fill = Sex, color = Sex)) +
+ # geom_density_ridges(alpha = 0.5)
+```
+"
+"2","Error: attempt to use zero-length variable name
+"

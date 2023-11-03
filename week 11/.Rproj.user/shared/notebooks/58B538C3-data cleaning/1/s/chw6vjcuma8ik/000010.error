@@ -1,0 +1,1 @@
+{"frames":[{"func":"ggplot(data = cleaned_insomnia, group_by(Sex), mapping = aes(x = Age, \n    y = ISI_total, colour = Sex))","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in ggplot(data = cleaned_insomnia, group_by(Sex), mapping = aes(x = Age,  : \n  object 'cleaned_insomnia' not found\n"}

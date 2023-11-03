@@ -1,0 +1,15 @@
+"0","library(ggplot2)"
+"0","ggplot(data = cleaned_insomnia, group_by(Sex), #start with data frame"
+"0","  mapping = aes(x = Age, #map variables to x and y axis"
+"0","                y = ISI_total,"
+"0","                colour = Sex)) + #group by species and represent with colours"
+"0","  geom_bar() + #represent each observation with a point"
+"0","  labs(title = ""Bill depth and length"","
+"0","      subtitle = ""Dimensions for Adelie, Chinstrap, Gentoo"","
+"0","      x = ""Bill depth (mm)"", y = ""Bill length (mm)"","
+"0","      colour = ""Gender"","
+"0","      caption = ""Source: Palmer Station LTER/ palmerpenguins package"") + "
+"0","  scale_colour_viridis_d()"
+"2","Error in ggplot(data = cleaned_insomnia, group_by(Sex), mapping = aes(x = Age,  : 
+  object 'cleaned_insomnia' not found
+"

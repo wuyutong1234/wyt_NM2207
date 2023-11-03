@@ -1,0 +1,154 @@
+---
+title: "graph"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE, echo=TRUE}
+library(tidyverse)
+library(ggplot2)
+library(ggforce)
+
+# Sample data
+your_data <- data.frame(Category = c("A", "B", "C", "D"),
+                        Value = c(20, 30, 40, 50),
+                        Magnitude = c(5, 10, 20, 30))
+
+# Calculate angles for pie slices
+your_data <- your_data %>%
+  mutate(EndAngle = cumsum(Value / sum(Value) * 2 * pi),
+         StartAngle = lag(EndAngle, default = 0))
+
+# Create a custom pie chart using ggforce
+ggplot(your_data, aes(x = 1, y = 1, fill = Category)) +
+  geom_arc_bar(aes(x0 = 0, y0 = 0, r0 = 0, r = Magnitude, start = StartAngle, end = EndAngle), color = "white") +
+  coord_fixed(ratio = 1) +
+  theme_void() +
+  scale_fill_brewer(palette = "Set3")
+
+```
+```{r, eval=FALSE, echo=TRUE}
+library(ggplot2)
+library(tidyverse)
+insomnia_uncleaned <-read.csv("insomnia.csv")
+glimpse(insomnia_uncleaned) 
+insomnia <- insomnia_uncleaned %>% # <-- pipe operator
+   select(Group, SubGroup, Sex, Age, ISI_total, PSQI_total, BDI_total, ASHS_total, ASHS_physiological, ASHS_cognitive,ASHS_emotional, ASHS_SleepEnvirnmont, ASHS_DaytimeSleep, ASHS_substances, ASHS_bedtimeRoutine, ASHS_sleepStability, ASHS_BedroomSharing, DBAS_total, FIRST_total, GCTI_total, NEO_neuroticism, NEO_extraversion, NEO_openness, NEO_agreeableness, NEO_Conscientiousness, ACE_tot, asq_home, asq_school, asq_attendance, asq_romantic, asq_peer, asq_teacher, asq_future, asq_leisure, asq_finance, asq_responsibility, cope_disengage_su, cope_growth, cope_disengage_mental, cope_emotions, cope_socialsupp_instr, cope_active, cope_denial, cope_religion, cope_humor, cope_disengage_emo, cope_restraint, cope_socialsupp_emo, cope_acccept, cope_suppression, cope_planning)
+cleaned_insomnia <- na.omit(insomnia)
+
+
+cleaned_insomnia$Sex <- factor(cleaned_insomnia$Sex, levels = c(0, 1), labels = c("Female", "Male"))
+# Sort the data in descending order
+your_data <- cleaned_insomnia %>%
+  select("asq_home", "asq_school") %>%
+  arrange(desc(Value))
+
+# Create a vertical bar chart
+ggplot(your_data, aes(x = reorder(Category, -Value), y = Value)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(x = "Category", y = "Value") +
+  coord_flip()
+
+```
+
+```{r, eval=TRUE, echo=TRUE}
+library(plotly)
+# Sample data
+df <- data.frame(
+  Date = seq(as.Date("2023-01-01"), by = "days", length.out = 10),
+  Value = c(10, 12, 14, 18, 20, 25, 30, 28, 22, 19)
+)
+
+# Create a basic line chart
+p <- plot_ly(df, x = ~Date, y = ~Value, type = 'scatter', mode = 'lines+markers')
+# Find the row with the highest value
+max_row <- df[which.max(df$Value), ]
+
+# Add an annotation to highlight the highest point
+p <- p %>%
+  add_annotations(
+    x = max_row$Date,
+    y = max_row$Value,
+    text = "Highest Point",
+    showarrow = TRUE,
+    arrowhead = 2
+  )
+p <- p %>%
+  layout(
+    updatemenu = list(
+      type = "buttons",
+      showactive = FALSE,
+      buttons = list(
+        list(
+          label = "Highlight Highest Point",
+          method = "animate",
+          args = list("frames", list(list(data = list(z = df$Value, text = df$Date, name = "Data")))),
+          showactive = TRUE
+        )
+      )
+    )
+  )
+p
+
+```
+
+```{r, eval=TRUE, echo=TRUE}
+library(ggplot2)
+library(gganimate)
+library(transformr)
+
+# Sample data
+df <- data.frame(
+  Date = seq(as.Date("2023-01-01"), by = "days", length.out = 10),
+  Value = c(10, 12, 14, 18, 20, 25, 30, 28, 22, 19)
+)
+
+# Add a grouping variable
+df <- df %>% mutate(Group = 1)
+
+# Create a basic ggplot
+p <- ggplot(df, aes(x = Date, y = Value, group = Group)) +
+  geom_line() +
+  labs(title = "Trend Over Time", x = "Date", y = "Value")
+
+# Animate the plot
+p_animated <- p +
+  transition_states(states = Date, transition_length = 2, state_length = 1) +
+  enter_fade() +
+  exit_fade() +
+  geom_text(
+    aes(label = ifelse(Value == max(Value), "Highest Point", "")),
+    vjust = -1,
+    hjust = 1
+  )
+
+# Render and view the animation
+animate(p_animated)
+
+
+```
+
+```{r, eval=TRUE, echo=TRUE}
+library(ggplot2)
+library(gganimate)
+set.seed(123)  # Set a random seed for reproducibility
+data <- data.frame(Value = rnorm(100))
+p <- ggplot(data, aes(x = Value)) +
+  geom_histogram(binwidth = 0.5, fill = "blue", alpha = 0.5) +
+  labs(title = "Cumulative Histogram Animation", x = "Value", y = "Frequency")
+p_animated <- p +
+  transition_states(
+    states = cumsum(..count..),
+    transition_length = 2,
+    state_length = 1
+  ) +
+  enter_fade() +
+  exit_fade()
+animate(p_animated)
+
+```
