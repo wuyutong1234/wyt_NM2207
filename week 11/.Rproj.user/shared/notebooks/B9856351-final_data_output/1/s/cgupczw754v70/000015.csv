@@ -1,0 +1,5 @@
+"0","ggplot(cleaned_insomnia, aes(x = Age, y = ISI_total)) +"
+"0","  geom_line(aes(color = ISI_total), linewidth = 1) +  # Customize point appearance"
+"0","  labs(x = ""Age"", y = ""Insomnia Severity"") +"
+"0","  ggtitle(""Insomnia Severity by Age"") +"
+"0","  theme_minimal()"

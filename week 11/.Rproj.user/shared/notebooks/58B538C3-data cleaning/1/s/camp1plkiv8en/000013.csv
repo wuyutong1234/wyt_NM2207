@@ -1,0 +1,8 @@
+"0",""
+"0","ggplot(cleaned_insomnia, aes(x = ISI_total)) +"
+"0","  geom_line(aes(y = BDI_total), color = ""red"", linetype = ""solid"") +"
+"0","  geom_line(aes(y = ASHS_total), color = ""blue"", linetype = ""dashed"") +"
+"0","  geom_line(aes(y = FIRST_total), color = ""green"", linetype = ""dotted"") +"
+"0","  labs(x = ""X Variable"", y = ""Y Variables"") +"
+"0","  ggtitle(""Multiple-Line Plot of Y Variables against X"")"
+"0",""

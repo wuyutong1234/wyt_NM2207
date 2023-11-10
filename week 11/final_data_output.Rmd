@@ -1,0 +1,128 @@
+---
+title: "final data output"
+author: "Wu Yutong"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE, echo=TRUE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+insomnia_uncleaned <-read.csv("insomnia.csv")
+#data cleaning
+insomnia <- insomnia_uncleaned %>% # <-- pipe operator
+   select(Sex, Age, ISI_total, BDI_total, ASHS_total, ASHS_physiological, ASHS_cognitive,ASHS_emotional, ASHS_SleepEnvirnmont, ASHS_DaytimeSleep, ASHS_substances, ASHS_bedtimeRoutine, ASHS_sleepStability, ASHS_BedroomSharing, DBAS_total, FIRST_total, GCTI_total, ACE_tot, asq_home, asq_school, asq_attendance, asq_romantic, asq_peer, asq_teacher, asq_future, asq_leisure, asq_finance, asq_responsibility, cope_disengage_su, cope_growth, cope_disengage_mental, cope_emotions, cope_socialsupp_instr, cope_active, cope_denial, cope_religion, cope_humor, cope_disengage_emo, cope_restraint, cope_socialsupp_emo, cope_acccept, cope_suppression, cope_planning)
+
+cleaned_insomnia <- na.omit(insomnia)
+
+cleaned_insomnia$Sex <- factor(cleaned_insomnia$Sex, levels = c(0, 1), labels = c("Female", "Male"))
+
+#regrouping
+participants <- cleaned_insomnia %>%
+  select(Sex, Age)
+
+causes <- cleaned_insomnia %>%
+  select(BDI_total, ASHS_total, ASHS_physiological, ASHS_cognitive,ASHS_emotional, ASHS_SleepEnvirnmont, ASHS_DaytimeSleep, ASHS_substances, ASHS_bedtimeRoutine, ASHS_sleepStability, ASHS_BedroomSharing, DBAS_total, FIRST_total, GCTI_total, ACE_tot, asq_home, asq_school, asq_attendance, asq_romantic, asq_peer, asq_teacher, asq_future, asq_leisure, asq_finance, asq_responsibility)
+
+sleephygiene <- cleaned_insomnia %>%
+  select(ASHS_physiological, ASHS_cognitive,ASHS_emotional, ASHS_SleepEnvirnmont, ASHS_DaytimeSleep, ASHS_substances, ASHS_bedtimeRoutine, ASHS_sleepStability, ASHS_BedroomSharing)
+
+stressinlife <- cleaned_insomnia %>%
+  select(asq_home, asq_school, asq_attendance, asq_romantic, asq_peer, asq_teacher, asq_future, asq_leisure, asq_finance, asq_responsibility)
+
+coping <- cleaned_insomnia %>%
+  select(cope_disengage_su, cope_growth, cope_disengage_mental, cope_emotions, cope_socialsupp_instr, cope_active, cope_denial, cope_religion, cope_humor, cope_disengage_emo, cope_restraint, cope_socialsupp_emo, cope_acccept, cope_suppression, cope_planning)
+```
+
+# age and gender-insomnia
+```{r, eval=TRUE, echo=TRUE}
+
+ggplot(cleaned_insomnia, aes(x = Age, y = ISI_total, color = ISI_total)) +
+  geom_line(size = 1, linetype = "solid", color = "#0077B6") +
+  geom_point(data = subset(cleaned_insomnia, ISI_total == max(ISI_total)), color = "#FF6F61", size = 3) +  
+  labs(x = "Age", y = "Insomnia Severity", title = "Insomnia Severity by Age") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 14, face = "bold"),
+        plot.title = element_text(size = 16, face = "bold"),
+        legend.position = "none")
+
+insomniacutoff <- 14
+filtered_data <- cleaned_insomnia %>% filter(ISI_total >= insomniacutoff)
+ggplot(filtered_data, aes(x = "", fill = Sex)) +
+  geom_bar(width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Gender Distribution for Insomnia") +
+  scale_fill_manual(values = c("Male" = "#0077B6", "Female" = "#FF6F61"))  
+
+```
+# scatter plots of causes of insomnia
+```{r, eval=TRUE, echo=TRUE}
+ggplot(cleaned_insomnia, aes(x = BDI_total, y = ISI_total)) +
+  geom_point() + 
+  geom_point(color = "#0077B6") +  
+  geom_smooth(method = "lm", se = FALSE, color = "#FF6F61") + # Add points
+  labs(x = "Depression", y = "Insomnia severity") +  # Label axes
+  ggtitle("Depression against insomnia severity") +  # Add a title
+  theme_minimal() 
+
+ggplot(cleaned_insomnia, aes(x = ASHS_total, y = ISI_total)) +
+  geom_point() + 
+  geom_point(color = "#0077B6") +  
+  geom_smooth(method = "lm", se = FALSE, color = "#FF6F61") + # Add points
+  labs(x = "Sleep hygiene", y = "Insomnia severity") +  # Label axes
+  ggtitle("Sleep hygiene against insomnia severity") +  # Add a title
+  theme_minimal() 
+
+ggplot(cleaned_insomnia, aes(x = FIRST_total, y = ISI_total)) +
+  geom_point() + 
+  geom_point(color = "#0077B6") +  
+  geom_smooth(method = "lm", se = FALSE, color = "#FF6F61") + # Add points
+  labs(x = "Predisposition to insomnia", y = "Insomnia severity") +  # Label axes
+  ggtitle("Predisposition to insomnia against insomnia severity") +  # Add a title
+  theme_minimal() 
+
+ggplot(cleaned_insomnia, aes(x = DBAS_total, y = ISI_total)) +
+  geom_point() + 
+  geom_point(color = "#0077B6") +  
+  geom_smooth(method = "lm", se = FALSE, color = "#FF6F61") + # Add points
+  labs(x = "Dysfunctional beliefs", y = "Insomnia severity") +  # Label axes
+  ggtitle("Dysfuntional beliefs towards insomnia against insomnia severity") +  # Add a title
+  theme_minimal() 
+
+ggplot(cleaned_insomnia, aes(x = GCTI_total, y = ISI_total)) +
+  geom_point() + 
+  geom_point(color = "#0077B6") +  
+  geom_smooth(method = "lm", se = FALSE, color = "#FF6F61") + # Add points
+  labs(x = "Cognitive intrusiveness", y = "Insomnia severity") +  # Label axes
+  ggtitle("Cognitive intrusiveness against insomnia severity") +  # Add a title
+  theme_minimal() 
+```
+```{r, eval=TRUE, echo=TRUE}
+
+
+# Sample data
+items <- c("Item A", "Item B", "Item C", "Item D")
+ranks <- c(1, 3, 2, 4)
+
+# Create a data frame
+ranking_data <- data.frame(Item = items, Rank = ranks)
+
+# Sort the data by rank
+ranking_data <- ranking_data[order(ranking_data$Rank), ]
+
+# Create a bar plot
+library(ggplot2)
+ggplot(cleaned_insomnia, aes(x = Item, y = Rank)) +
+  geom_bar(stat = "mean", fill = "steelblue") +
+  labs(title = "Ranking of Items", x = "Items", y = "Rank")
+
+
+
+```
+

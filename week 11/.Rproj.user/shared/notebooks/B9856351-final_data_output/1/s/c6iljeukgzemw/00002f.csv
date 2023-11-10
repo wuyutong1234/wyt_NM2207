@@ -1,0 +1,8 @@
+"0",""
+"0","ggplot(cleaned_insomnia, aes(x = DBAS_total, y = ISI_total)) +"
+"0","  geom_point() + "
+"0","  geom_point(color = ""#0077B6"") +  "
+"0","  geom_smooth(method = ""lm"", se = FALSE, color = ""#FF6F61"") + # Add points"
+"0","  labs(x = ""Dysfunctional beliefs"", y = ""Insomnia severity"") +  # Label axes"
+"0","  ggtitle(""Dysfuntional beliefs towards insomnia against insomnia severity"") +  # Add a title"
+"0","  theme_minimal() "
