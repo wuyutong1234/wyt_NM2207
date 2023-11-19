@@ -1,0 +1,25 @@
+---
+title: "About me"
+---
+
+# Hello...
+
+I'm **Yutong**, a psychology student at the National University of Singapore (NUS). As an aspiring psychologist, I'm passionate about understanding the complexities of the human mind and using that knowledge to make a positive impact on people's lives.
+
+My personality type is *INFJ*, which means I'm not only empathetic but also driven to help and support others in their personal growth and well-being. This innate quality fuels my dedication to my studies and my future career in psychology.
+
+When I'm not immersed in my academic pursuits, I find joy in *dance*, *movies* and *travel*. Dance allows me to express myself creatively and stay physically active, while movies offer a window into different worlds and human experiences. Both of these passions provide a delightful escape and a source of inspiration in my life.
+
+## My volunteering experience...
+
+### Project Scrub-Up!
+
+![](images/IMG_0875-01.JPG){width="608"}
+
+![](images/IMG_1029-01.JPG){width="600"}
+
+![](images/IMG_1142-01.JPG){width="605"}
+
+![](images/IMG_1434-01.JPG){width="606"}
+
+![](images/IMG_1165-01.JPG){width="616"}

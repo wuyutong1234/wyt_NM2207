@@ -1,0 +1,467 @@
+---
+title: "Insomnia"
+callout-appearance: "minimal"
+title-block-banner: "background.jpg"
+---
+
+# Introduction
+
+Do you know...
+
+```{=html}
+<br>
+```
+```{=html}
+```
+<!--# divide image and text into columns to display them side by side -->
+
+<!--# fade in image  -->
+
+::: columns
+::: {.column width="40%"}
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .fade-in-container {
+      text-align: center; /* Center the content horizontally */
+    }
+
+    .fade-in-image {
+      width: 300px; /* Adjust the width as needed */
+      height: auto; /* Maintain the aspect ratio */
+      animation: fadeIn 5s;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="fade-in-container">
+  <img class="fade-in-image" src="vcv.jpg" alt="Your Image">
+</div>
+
+</body>
+</html>
+```
+:::
+
+::: {.column width="60%"}
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .centered-box {
+      text-align: center;
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #adb4ba;
+      background-color: #dfdedd;
+    }
+
+    /* Style for the bold word */
+    .bold-text {
+      font-weight: bold;
+    }
+
+    /* Style for the link */
+    .linked-text {
+      color: #245465;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="centered-box">
+  <p> <a href="https://vangoghexpo.com/singapore/" class="linked-text">Vincent van Gogh</a>, the famed Dutch post-impressionist painter, is also believed to have struggled with mental health issues, and there are historical accounts that suggest he experienced <span class="bold-text">difficulties with sleep</span>.</p>
+</div>
+
+</body>
+</html>
+
+</html>
+```
+:::
+:::
+
+<!--# Interaction: collapse block for additional information about VG -->
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .callout {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px 0;
+    }
+    
+  /* Style for the bold word */
+    .bold-text {
+      font-weight: bold;
+    }
+
+    .callout-header {
+      cursor: pointer;
+      user-select: none;
+      font-weight: bold;
+    }
+
+    .callout-content {
+      display: none;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="callout">
+  <div class="callout-header" onclick="toggleContent(this)">Click to read more about van Gogh</div>
+  <div class="callout-content">
+    <p>Vincent van Gogh's letters to his brother Theo and other correspondences often mentioned his struggles with <span class="bold-text">sleeplessness</span>. In his letters, Van Gogh described periods of intense creative energy and productivity, during which he would paint through the night. His  <span class="bold-text">insomnia</span> and mental health challenges are believed to have influenced both the subject matter and the expressive, emotive style of his artwork.</p>
+    <p>Van Gogh's famous painting "The Starry Night" is often thought to reflect his turbulent emotions and the hallucinatory effects that may have been associated with his experiences of <span class="bold-text">insomnia</span>. This fact underscores the complex interplay between mental health, creativity, and the sleep patterns of influential figures throughout history.
+</p>
+  </div>
+</div>
+
+<script>
+  function toggleContent(element) {
+    const content = element.nextElementSibling;
+
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
+```
+<!--# callout block to highlight the definition of insomnia -->
+
+::: callout-note
+## Insomnia
+
+is a common sleep disorder characterized by difficulty falling asleep, staying asleep, or experiencing non-restorative sleep despite having the opportunity for adequate sleep.
+:::
+
+<!--# App1: gender/age plot against severity of insomnia; maximum point in 'yellow' highlight the most affected age; interaction: drop down bar -->
+
+```{=html}
+<iframe src="https://wuyutong1234.shinyapps.io/age_gender/" width="800" height="500"></iframe> 
+```
+<!--# callout bar to draw viewer's attention to the message from the above plots -->
+
+::: callout-tip
+## Insomnia
+
+affects individuals of all ages but can be particularly impactful among youth and females.
+:::
+
+```{=html}
+<br>
+```
+<img src="waves.svg" style="height: 100%; width: 100%; object-fit: contain"/>
+
+```{=html}
+<br>
+```
+**Impact on Youth:**
+
+-   **Prevalence in Youth:** Insomnia is prevalent among the youth population, affecting both adolescents and young adults.
+
+-   **Contributing Factors:** Academic stress, social pressures, and the increasing use of electronic devices contribute to insomnia in this demographic.
+
+-   **Impact on Mental Health:** Insomnia in youth is linked to mental health issues, including anxiety and depression, potentially hindering academic performance and overall well-being.
+
+**Impact on Females:**
+
+-   **Higher Prevalence:** Females often experience a higher prevalence of insomnia compared to males, with hormonal fluctuations, pregnancy, and menopause contributing to sleep disturbances.
+
+-   **Impact on Reproductive Health:** Insomnia can affect reproductive health, influencing menstrual cycles, fertility, and exacerbating symptoms during menopause.
+
+<img src="waves.svg" style="height: 100%; width: 100%; object-fit: contain"/>
+
+## Causes of insomnia...
+
+<!--# App2: plots of causes of insomnia against severity of insomnia; best fit line to give a simple visual trend of the plot; interaction: radial button -->
+
+```{=html}
+<iframe src="https://wuyutong1234.shinyapps.io/causes/" width="1000" height="500"></iframe> 
+```
+![](waves.svg){style="height: 100%; width: 100%; object-fit: contain"}
+
+## Coping strategies...
+
+<!--# Interaction: flip cards to display coping strategies in a concise and engaging way -->
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .flip-card-container {
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+      width: 800px;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      width: 400px;
+      height: 300px;
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .flip-card-front {
+      background-color: #67a5d1;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .flip-card-back {
+      background-color: #ebe0e3;
+      color: #333;
+      font-size: 18px;
+      transform: rotateY(180deg);
+    }
+
+    /* Customize the second flip card */
+    .flip-card:nth-child(2) .flip-card-front {
+      background-color: #ebe0e3; /* Set a different background color for the second flip card front face */
+    }
+
+    .flip-card:nth-child(2) .flip-card-back {
+      background-color: #67a5d1; /* Set a different background color for the second flip card back face */
+    }
+  </style>
+</head>
+<body>
+
+<div class="flip-card-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        Sleep Hygiene
+      </div>
+      <div class="flip-card-back">
+        Establishing a consistent sleep routine, creating a comfortable sleep environment, and limiting electronic device use before bedtime can promote better sleep hygiene.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        Cognitive Behavioral Therapy for Insomnia (CBT-I)
+      </div>
+      <div class="flip-card-back">
+        CBT-I is a structured program that helps individuals identify and replace thoughts and behaviors that cause or worsen sleep problems with habits that promote sound sleep.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+```
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .flip-card-container {
+      display: flex;
+      justify-content: space-around;
+      margin: auto;
+      width: 800px;
+    }
+
+    .flip-card {
+      perspective: 1000px;
+      width: 400px;
+      height: 300px;
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .flip-card-front {
+      background-color: #ebe0e3;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .flip-card-back {
+      background-color: #67a5d1;
+      color: #333;
+      font-size: 18px;
+      transform: rotateY(180deg);
+    }
+
+    /* Customize the second flip card */
+    .flip-card:nth-child(2) .flip-card-front {
+      background-color: #67a5d1; /* Set a different background color for the second flip card front face */
+    }
+
+    .flip-card:nth-child(2) .flip-card-back {
+      background-color: #ebe0e3; /* Set a different background color for the second flip card back face */
+    }
+  </style>
+</head>
+<body>
+
+<div class="flip-card-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        Stress Management
+      </div>
+      <div class="flip-card-back">
+        Implementing stress-reduction techniques such as mindfulness, meditation, and relaxation exercises can alleviate the mental burdens contributing to insomnia.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        Healthy Lifestyle Choices
+      </div>
+      <div class="flip-card-back">
+        Regular exercise, a balanced diet, and limiting caffeine and alcohol intake can positively impact sleep patterns.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+```
+<br>
+
+![](waves.svg){style="height: 100%; width: 100%; object-fit: contain"}
+
+<br>
+
+## 
+
+## Parting words...
+
+<!--# textbox to highlight the summary of the website -->
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Title</title>
+    <style>
+      .boxed {
+        background: #ebe0e3;
+        color: #245465;
+        border: 1px solid #adb4ba;
+        margin: 0px auto;
+        width: 800px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxed">
+      Insomnia is a complex sleep disorder that can significantly impact the youth and female populations. Understanding the factors contributing to insomnia and adopting effective coping strategies, including sleep hygiene, therapy, and stress management, can play a crucial role in improving sleep quality and overall well-being. Empowering individuals with knowledge about insomnia and its management is key to fostering a healthier and more resilient society.
+
+
+
+    </div>
+  </body>
+</html>
+```
+<!--# background image for the website -->
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('bed.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      color: #43819d; /* Text color */
+    }
+  </style>
+</head>
+</html>
+```

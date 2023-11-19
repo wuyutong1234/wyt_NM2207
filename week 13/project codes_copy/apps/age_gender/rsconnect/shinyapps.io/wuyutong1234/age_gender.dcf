@@ -1,0 +1,12 @@
+name: age_gender
+title: age_gender
+username: wuyutong1234
+account: wuyutong1234
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10455403
+bundleId: 7930017
+url: https://wuyutong1234.shinyapps.io/age_gender/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
